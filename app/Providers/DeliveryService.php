@@ -41,7 +41,8 @@ class DeliveryService extends ServiceProvider
     public function packageDelivery($deliveryPackageDate, $deliveryService)
     {
         if (isset($this->services[$deliveryService])) {
-            return $this->services[$deliveryService]->createDelivery($deliveryPackageDate);
+            $srv = new $this->services[$deliveryService]();
+            return $srv->createDelivery($deliveryPackageDate);
         }
         throw new \Exception("Delivery Service not found");
     }

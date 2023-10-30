@@ -11,7 +11,7 @@ class NovaPoshta implements DeliveryConnector
     private string $address;
 
     public function __construct(){
-        $this->address = config('sender_address', 'default address');
+        $this->address = config('services.delivery.sender_address', 'default address');
     }
 
     public static function getName()

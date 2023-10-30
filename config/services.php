@@ -13,6 +13,9 @@ return [
     | a conventional file to locate the various service credentials.
     |
     */
+    'delivery' => [
+        'sender_address' => 'Address lines for delivery service'
+    ],
 
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
