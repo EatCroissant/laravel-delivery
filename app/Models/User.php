@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -23,6 +24,11 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function comments()
+    {
+        return $this->belongsToMany(Comment::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -42,4 +48,5 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
 }

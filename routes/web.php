@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $comments =  app(\App\Http\Repository\CommentRepository::class)->getComments();
+//    dd($comments);
+    session_start();
+    return view('welcome', ['comments' => $comments]);
 });
